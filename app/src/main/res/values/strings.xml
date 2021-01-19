@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">FoodApp</string>
+    <string name="title_favorite">Favorite</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="food">Food</string>
+    <string name="favorite">Favorite</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="error_message">Makanan yang anda cari tidak ada</string>
+    <string name="hint_search">nasi goreng</string>
+    <string name="cari">Cari</string>
+    <string name="search_empty">Masukan makanan yang anda cari</string>
+    <string name="image_food">image_food</string>
+</resources>
