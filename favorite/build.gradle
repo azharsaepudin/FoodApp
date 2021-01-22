@@ -9,10 +9,6 @@ android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
 
-    lintOptions {
-        abortOnError false
-    }
-
     defaultConfig {
         applicationId "com.azhar.favorite"
         minSdkVersion 22
@@ -26,7 +22,7 @@ android {
     buildTypes {
         release {
             minifyEnabled false
-            proguardFiles 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
