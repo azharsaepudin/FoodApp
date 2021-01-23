@@ -9,6 +9,8 @@ import com.azhar.core.data.source.remote.network.ApiService
 import com.azhar.core.domain.repository.IFoodAppRepository
 import com.azhar.core.utils.AppExecutors
 import com.google.gson.GsonBuilder
+import net.sqlcipher.database.SQLiteDatabase
+import net.sqlcipher.database.SupportFactory
 import okhttp3.CertificatePinner
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -56,10 +58,16 @@ val databaseModule = module {
     factory { get<FoodAppDatabase>().foodAppDao() }
 
     single {
+
+        val passphrase: ByteArray = SQLiteDatabase.getBytes("azhar".toCharArray())
+
+        val factory = SupportFactory(passphrase)
+
         Room.databaseBuilder(
                 androidContext(),
                 FoodAppDatabase::class.java, "food.db"
-        ).fallbackToDestructiveMigration().build()
+        ).fallbackToDestructiveMigration()
+                .openHelperFactory(factory).build()
     }
 }
 
