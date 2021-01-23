@@ -4,6 +4,7 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="food">Food</string>
     <string name="favorite">Favorite</string>
+    <string name="search">Search</string>
     <string name="title_activity_detail">DetailActivity</string>
     <string name="error_message">Makanan yang anda cari tidak ada</string>
     <string name="hint_search">nasi goreng</string>

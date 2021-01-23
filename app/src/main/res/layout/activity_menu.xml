@@ -42,7 +42,6 @@
 
 
                     <com.google.android.material.tabs.TabItem
-                        android:id="@+id/tab_food"
                         style="@style/tab_item"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -50,12 +49,11 @@
                         android:text="@string/food" />
 
                     <com.google.android.material.tabs.TabItem
-                        android:id="@+id/tab_favorite"
                         style="@style/tab_item"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:icon="@drawable/ic_favorite"
-                        android:text="@string/favorite" />
+                        android:icon="@drawable/ic_search"
+                        android:text="@string/search" />
 
                 </com.google.android.material.tabs.TabLayout>
             </androidx.viewpager.widget.ViewPager>
