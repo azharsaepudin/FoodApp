@@ -1,23 +1,20 @@
 package com.azhar.foodapp.ui.search
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.asLiveData
+import androidx.lifecycle.*
 import com.azhar.core.domain.model.Food
 import com.azhar.core.domain.usecase.FoodUseCase
 
-class SearchFoodViewModel(foodUseCase: FoodUseCase) : ViewModel() {
+class SearchFoodViewModel(private val foodUseCase: FoodUseCase) : ViewModel() {
 
+    private val query = MutableLiveData<String>()
 
-    val foodscase = foodUseCase
+    var food: LiveData<List<Food>> = Transformations.switchMap(query) {
+        val result = foodUseCase.searchFood(it).asLiveData()
+        result
+    }
 
-    lateinit var foodResult: LiveData<List<Food>>
-
-    fun getResultRearch(keySearch: String): LiveData<List<Food>> {
-
-        foodResult = foodscase.searchFood(keySearch).asLiveData()
-
-        return foodResult
+    fun doSearch(key: String) {
+        query.postValue(key)
     }
 
 

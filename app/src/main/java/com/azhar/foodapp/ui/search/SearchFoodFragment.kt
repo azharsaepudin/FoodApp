@@ -42,22 +42,23 @@ class SearchFoodFragment : Fragment() {
                 startActivity(intent)
             }
 
+            searchFoodViewModel.food.observe(viewLifecycleOwner, {
+                foodAdapter.setData(it)
+
+                if (it.isNotEmpty()) {
+                    binding.tvNotFound.visibility = View.GONE
+                } else {
+                    binding.tvNotFound.visibility = View.VISIBLE
+                }
+            })
+
             binding.brnCari.setOnClickListener {
 
                 val keySearch = binding.edtSearch.text
 
                 if (keySearch.isNotEmpty()) {
 
-                    searchFoodViewModel.getResultRearch("%" + keySearch + "%")
-                    searchFoodViewModel.foodResult.observe(viewLifecycleOwner, {
-                        foodAdapter.setData(it)
-
-                        if (it.isNotEmpty()) {
-                            binding.tvNotFound.visibility = View.GONE
-                        } else {
-                            binding.tvNotFound.visibility = View.VISIBLE
-                        }
-                    })
+                    searchFoodViewModel.doSearch("%" + keySearch + "%")
 
 
                 } else {
