@@ -1,3 +1,4 @@
 <resources>
 
+    <string name="favorite_empty">Opps! kamu belum simpan makanan favorite</string>
 </resources>

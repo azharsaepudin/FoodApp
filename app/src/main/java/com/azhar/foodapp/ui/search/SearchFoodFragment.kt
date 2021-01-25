@@ -2,11 +2,11 @@ package com.azhar.foodapp.ui.search
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.azhar.core.ui.FoodAdapter
 import com.azhar.foodapp.R
@@ -42,13 +42,17 @@ class SearchFoodFragment : Fragment() {
                 startActivity(intent)
             }
 
+            binding.tvSuggess.visibility = View.VISIBLE
             searchFoodViewModel.food.observe(viewLifecycleOwner, {
                 foodAdapter.setData(it)
 
+
                 if (it.isNotEmpty()) {
                     binding.tvNotFound.visibility = View.GONE
+                    binding.tvSuggess.visibility = View.GONE
                 } else {
                     binding.tvNotFound.visibility = View.VISIBLE
+                    binding.tvSuggess.visibility = View.GONE
                 }
             })
 

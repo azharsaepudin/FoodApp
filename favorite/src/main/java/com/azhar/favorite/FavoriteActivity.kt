@@ -1,8 +1,9 @@
 package com.azhar.favorite
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
+import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.azhar.core.ui.FoodAdapter
 import com.azhar.favorite.databinding.ActivityFavoriteBinding
@@ -29,6 +30,7 @@ class FavoriteActivity : AppCompatActivity() {
         val foodAdapter = FoodAdapter()
         favoriteViewModel.getFavorite.observe(this, {
             foodAdapter.setData(it)
+            binding.layoutEmpty.root.visibility = if (it.isNotEmpty()) View.GONE else View.VISIBLE
         })
 
         with(binding.rvFavorite) {
