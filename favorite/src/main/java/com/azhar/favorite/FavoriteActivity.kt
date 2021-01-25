@@ -22,7 +22,7 @@ class FavoriteActivity : AppCompatActivity() {
         binding = ActivityFavoriteBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        supportActionBar?.title = "Favorit"
+        supportActionBar?.title = "Favorite"
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         loadKoinModules(favoriteModule)
